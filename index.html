@@ -10,83 +10,39 @@
   <body>
 
       <!-- Card Start -->
-      <div class="card" id="doneCard">
+      <div class="card" id="startCard">
         <div class="card-header">
-          <h2>All done!</h2>
+          <h2>Coding Quiz Challenge</h2>
         </div>
         <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
+            <p>Try to answer the following code-related questions within the tie limit.
+            keep in mind that incorrect answers will penalize your score/time
+            by ten seconds
+            </p> 
+            <button id="startBtn" class="btn">Start Quiz</button>
+          </p>
         </div>
         <div class="card-footer">
         </div>
-      <!-- Card Question 1 -->
-      <div class="card" id="doneCard">
+      </div>
+      <!-- Card Questions -->
+      <div class="card" id="questionCard">
         <div class="card-header">
-          <h2>Question 1</h2>
+          <h2 id="question"></h2>
         </div>
         <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
+          <button id="answer1Btn" class="btn"></button><br/>
+          <button id="answer2Btn" class="btn"></button><br/>
+          <button id="answer3Btn" class="btn"></button><br/>
+          <button id="answer4Btn" class="btn"></button><br/>
         </div>
         <div class="card-footer">
+          <p id="answerMsg"></p>
         </div>
-      <!-- Card Question 2 -->
-      <div class="card" id="doneCard">
-        <div class="card-header">
-          <h2>Question 2</h2>
-        </div>
-        <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
-        </div>
-        <div class="card-footer">
-        </div>
-      <!-- Card Question 3 -->
-      <div class="card" id="doneCard">
-        <div class="card-header">
-          <h2>Question 3</h2>
-        </div>
-        <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
-        </div>
-        <div class="card-footer">
-        </div>
-      <!-- Card Question 4 -->
-      <div class="card" id="doneCard">
-        <div class="card-header">
-          <h2>Question 4</h2>
-        </div>
-        <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
-        </div>
-        <div class="card-footer">
-        </div>
-      <!-- Card Question 5 -->
-      <div class="card" id="doneCard">
-        <div class="card-header">
-          <h2>Question 5</h2>
-        </div>
-        <div class="card-body">
-            <div id="finalscore"></div>
-            Enter initials: <input type="text" id="inputInitials" placeholder="initials"/>
-                <button id="submitInitialBtn" class="btn">Submit</button>
-            </p>
-        </div>
-        <div class="card-footer">
-        </div>
+      </div>
+
+      
+      
 
       <!-- Card done -->
       <div class="card" id="doneCard">
