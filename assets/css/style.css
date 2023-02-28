@@ -18,10 +18,17 @@ body {
   padding: 0;
 }
 
+/************************************** 
+Set header style 
+**************************************/
 header div {
   padding: 10px;
 }
 
+/************************************** 
+Set card style for header fields
+scoreLink, timeLeft
+**************************************/
 #scoreLink {
   color:rgb(77, 1, 77);
   float:left;
@@ -40,7 +47,6 @@ header div {
 Set button style for class
 .btn
 **************************************/
-
 .btn {
   border: none;
   background-color: rgb(77, 1, 77);
@@ -52,22 +58,29 @@ Set button style for class
   cursor: pointer;
 }
 
+/************************************** 
+Set button additional style for answer
+buttons. The answer buttons should all
+be the same size
+**************************************/
 .answers .btn {
   display:block;
   width:30%;
-  text-align:left;
-  
-}
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+  text-align:left;  
 }
 
+/************************************** 
+Set button color when hovering
+**************************************/
 button:hover {
   cursor: default;
   background:plum;
 }
 
+/************************************** 
+Set card style for class
+.card
+**************************************/
 .card {
   padding: 30px 40px;
   visibility: hidden;
@@ -83,6 +96,9 @@ Set card body style for class
   min-height: 100px;
 }
 
+/************************************** 
+Set additional style for the start card
+**************************************/
 #startCard {
   text-align: center;
   visibility: visible;
@@ -90,35 +106,32 @@ Set card body style for class
 
 
 /************************************** 
-Set style for text
+Set style for scores in the high score section
 **************************************/
 .score {
   background-color:plum;
   list-style-position:inside;
 } 
 
-
 /************************************** 
 set media settings for  
-.btn, #password, #inputLen
+tablet and phone
 **************************************/ 
-@media (max-width: 690px) {
-  .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
-  }
-
-  #password,
-  inputLen,
-  label {
-    font-size: 1rem;
-  }
-
-}
-
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
+@media (max-width: 800px) 
+{
+  .btn 
+  {
+    font-size: 12px;
+    padding: 8px 8px;
   }
 }
+
+@media (max-width: 500px) 
+{
+  .btn 
+  {
+    font-size: 8px;
+    padding: 5px 5px;
+  }
+}
+

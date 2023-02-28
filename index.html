@@ -9,85 +9,92 @@
   </head>
   <body>
 
-  <header>
-    <div>
-      <span id="scoreLink">View high scores</span>
-      <span id="timeLeft">Time:</span>
-    </div>
-  </header>
-
-
-  <main>
-    
-      <!-- Card Start -->
-      <div class="card" id="startCard">
-        <div class="card-header">
-          <h2>Coding Quiz Challenge</h2>
-          <br/>
-        </div>
-        <div class="card-body">
-          <p>Try to answer the following code-related questions within the tie limit.
-          keep in mind that incorrect answers will penalize your score/time
-          by ten seconds
-          </p> 
-        </div>
-        <div class="card-footer">
-          <button id="startBtn" class="btn">Start Quiz</button>
-        </div>
+  <!-- header section includes a link to scores
+       and the timeLeft timer 
+  -->
+    <header>
+      <div>
+        <span id="scoreLink">View high scores</span>
+        <span id="timeLeft">Time:</span>
       </div>
+    </header>
 
-      <!-- Card Questions -->
-      <div class="card" id="questionCard">
-        <div class="card-header">
-          <h2 id="question"></h2>
-          <br />
-        </div>      
-        <div class="card-body">
-          <div class="answers">
-            <button id="answer1Btn" class="btn" value="1"></button><br/>
-            <button id="answer2Btn" class="btn" value="2"></button><br/>
-            <button id="answer3Btn" class="btn" value="3"></button><br/>
-            <button id="answer4Btn" class="btn" value="4"></button><br/>
+
+    <!-- Main section of the quiz -->
+    <main>
+        <!-- each of the sections of the quiz
+            are contained in separate cards
+        -->
+        <!-- Card to start quiz -->
+        <div class="card" id="startCard">
+          <div class="card-header">
+            <h2>Coding Quiz Challenge</h2>
+            <br/>
+          </div>
+          <div class="card-body">
+            <p>Try to answer the following code-related questions within the tie limit.
+            keep in mind that incorrect answers will penalize your score/time
+            by ten seconds
+            </p> 
+          </div>
+          <div class="card-footer">
+            <button id="startBtn" class="btn">Start Quiz</button>
           </div>
         </div>
-        <div class="card-footer">
-          <p id="answerMsg"></p>
-        </div>
-      </div>
 
-      <!-- Card done -->
-      <div class="card" id="doneCard">
-        <div class="card-header">
-          <h2>All done!</h2>
+        <!-- Card Questions -->
+        <div class="card" id="questionCard">
+          <div class="card-header">
+            <h2 id="question"></h2>
+            <br />
+          </div>      
+          <div class="card-body">
+            <div class="answers">
+              <button id="answer1Btn" class="btn" value="1"></button><br/>
+              <button id="answer2Btn" class="btn" value="2"></button><br/>
+              <button id="answer3Btn" class="btn" value="3"></button><br/>
+              <button id="answer4Btn" class="btn" value="4"></button><br/>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p id="answerMsg"></p>
+          </div>
         </div>
-        <div class="card-body">
-            <div id="finalscore">Your final score is </div>
-            Enter initials: <input type="text" id="initials" placeholder="initials"/>
+
+        <!-- Card done -->
+        <div class="card" id="doneCard">
+          <div class="card-header">
+            <h2>All done!</h2>
+          </div>
+          <div class="card-body">
+              <div id="finalscore">Your final score is </div>
+                <label for="initials">Enter initials:</label> 
+                <input type="text" id="initials" placeholder="initials"/>
                 <button id="addScoreBtn" class="btn">Submit</button>
-            </p>
+              </p>
+          </div>
+          <div class="card-footer">
+          </div>
         </div>
-        <div class="card-footer">
-        </div>
-      </div>
 
-      <!-- Card Display high scores -->
-      <div class="card" id="scoreCard">
-        <div class="card-header">
-          <h2>High scores</h2>
+        <!-- Card Display high scores -->
+        <div class="card" id="scoreCard">
+          <div class="card-header">
+            <h2>High scores</h2>
+          </div>
+          <div class="card-body">
+            <ol id="highScores">
+            </ol>
+            <br/>
+          </div>
+          <div class="card-footer">
+            <button id="backBtn" class="btn">Go back</button>
+            <button id="clearBtn" class="btn">Clear high scores</button>
+          </div>
         </div>
-        <div class="card-body">
-          <ol id="highScores">
-          </ol>
-          <br/>
-        </div>
-        <div class="card-footer">
-          <button id="backBtn" class="btn">Go back</button>
-          <button id="clearBtn" class="btn">Clear high scores</button>
-        </div>
-      </div>
-  </main>
-    
+    </main>
+      
 
-        <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

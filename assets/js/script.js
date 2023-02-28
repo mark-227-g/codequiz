@@ -1,21 +1,9 @@
 /************************************** 
 References
 **************************************/
-
 var timerEl = document.getElementById("timeLeft");
 var mustBeCorrect = false;
 var timeInterval
-function mytime ()
-{
-    console.log(timeLeft);
-    timeLeft=timeLeft-1;
-    document.getElementById("timeLeft").innerText="Time: "+timeLeft;
-    if(timeLeft<=0)
-    {
-        clearInterval(timeInterval);
-        done();
-    }
-}
 
 /************************************** 
 global variables
@@ -65,47 +53,60 @@ class Question
     }
 };
 
-function displayTime(){
+/************************************** 
+functions
+**************************************/
+function displayTime()
+{
     timerEl.innerHTML="Time: "+timeLeft;
-    console.log("time left " +timeLeft);
 }
 
+function mytime ()
+{
+    timeLeft=timeLeft-1;
+    document.getElementById("timeLeft").innerText="Time: "+timeLeft;
+    if(timeLeft<=0)
+    {
+        clearInterval(timeInterval);
+        done();
+    }
+}
 
 /* ----- Begin Question Section -----*/
 
 /************************************** 
 function - Start
+load questions
+initialize timer
+show the question card and ask the first question
 **************************************/
 function start()
 {
     loadQuestions();
+    timeLeft=100;
     timeInterval= setInterval(mytime,1000);
     displayTime();
     hideAllCards();
     showEl(document.getElementById("questionCard"),true);
-
     askQuestion();
 }
 
 /************************************** 
 function - Ask Question
+fill in the question card with the questions
+save the correct answer
+
+if there are no move questions then move to done
 **************************************/
 function askQuestion()
 {
-    //.log("ask question");
-    //console.log(questions);
-    //console.log("number of questions ",questions.length);
-    //console.log("current question ",currentQuestion);
-    if(currentQuestion==questions.length)
+   if(currentQuestion==questions.length)
     {
-      //  console.log("last question"+currentQuestion);
         done();
     }
     else
     {
-       // console.log("ask question"+ currentQuestion);
         document.getElementById("question").innerText = questions[currentQuestion].question;
-      //  console.log(questions[currentQuestion].question);
         document.getElementById("answer1Btn").textContent=questions[currentQuestion].a1;
         document.getElementById("answer2Btn").textContent=questions[currentQuestion].a2;
         document.getElementById("answer3Btn").textContent=questions[currentQuestion].a3;
@@ -119,7 +120,6 @@ function - loadQuestions
 **************************************/
 function loadQuestions()
 {
-   // console.log("load questions");
     questions.push(new Question("Commonly used data types DO Not Include:",
     "1. strings","2. booleans","3. alerts", "4. numbers","2"));
     questions.push(new Question("The Condition in an if / else statement is enclosed with _____",
@@ -133,24 +133,19 @@ function loadQuestions()
 }
 
 /************************************** 
-function - timer
-**************************************/
-
-
-/************************************** 
 function - checkAnswer
+check which button the user pressed
+and compare to the correct answer
+if the answer is wrong deduct time
 **************************************/
 function checkAnswer(event)
 {
     const button = event.target;
-    //.log(button);
-    //console.log(rightAnswer);
     if(button.value==rightAnswer) {
         finalScore++;
         document.getElementById("answerMsg").textContent="Correct!";
         currentQuestion++;
         askQuestion();
-
     }
     else
     {
@@ -165,67 +160,60 @@ function checkAnswer(event)
 };
 /* ------- End Question Section -----*/
 
+
 /* ------- Begin Score Section -------*/
 
 /************************************** 
 function - showScores
+load scores from local storage
+sort the scores so the highest number is first
+add list item elements to display score
 **************************************/
 function showScores()
 {
-   // console.log("show scores");
     var highScoresEl = document.getElementById("highScores");
     emptyList();
     scores=((JSON.parse(localStorage.getItem("scores"))));
     if(scores != null)
     {   
-       // console.log(scores);
         scores.sort(function(a, b){return b.score-a.score});
         for(i=0;i<scores.length;i++)
         {
-         //   console.log(scores[i]);
             el=document.createElement('li');
             el.classList="score";
             el.innerHTML=scores[i].name+" - "+scores[i].score;
             highScoresEl.appendChild(el);
-         //   console.log("new li "+el.classList)
-            //.textContent=scores[i].name+" - "+scores[i].score;
         };
     };
 }
 
 /************************************** 
-function - addScore
+function - addInitials
 Adds the new score to the list of high scores
 Saves the scores to local storage
 calls showscores to display the new score in the list
 **************************************/
 function addInitials()
 {
-    console.log("add score")
     var x=document.getElementById("initials");
-    console.log(x.value.length);
-    console.log("------");
     if(x.value.length>0)
     {
-       
+        var scores=((JSON.parse(localStorage.getItem("scores"))));
+        if(scores == null)
+        {
+            scores=[(new Score(document.getElementById("initials").value,timeLeft))];
+        }
+        else
+        { 
+            scores.push(new Score(document.getElementById("initials").value,timeLeft));
+        };
 
-    var scores=((JSON.parse(localStorage.getItem("scores"))));
-   // console.log(scores);
-    if(scores == null)
-    {
-        scores=[(new Score(document.getElementById("initials").value,timeLeft))];
-    }
-    else
-    { 
-        scores.push(new Score(document.getElementById("initials").value,timeLeft));
+        localStorage.setItem("scores", JSON.stringify(scores));
+        showScores();
+
+        hideAllCards();
+        showEl(document.getElementById("scoreCard"),true);
     };
-   // console.log("add to local "+scores);
-    localStorage.setItem("scores", JSON.stringify(scores));
-    showScores();
-
-    hideAllCards();
-    showEl(document.getElementById("scoreCard"),true);
-};
 }
 
 /************************************** 
@@ -238,39 +226,11 @@ function emptyList()
     while (highScoresEl.hasChildNodes())
     { 
         highScoresEl.removeChild(highScoresEl.firstChild);
-      //  console.log("remove")
     }
 }
 
-/* ------- End Score Section ---------*/
-
-function done()
-{
-    clearInterval(timeInterval);
-    showEl(document.getElementById("questionCard"),false);
-    showEl(document.getElementById("doneCard"),true);
-    document.getElementById("finalscore").textContent= "Your final score is "+finalScore;
-}
 /************************************** 
-function - back 
-**************************************/
-function back()
-{
-    hideAllCards();
-    showEl(document.getElementById("startCard"),true);
-}/************************************** 
-function - clear
-deletes the scores from memory and calls emptylist
-**************************************/
-function clear()
-{
-    emptyList();
-    localStorage.removeItem("scores");
-  //  showScores();
- 
-}
-/************************************** 
-s
+function - show highScores
 **************************************/
 function showHighScores()
 {
@@ -279,16 +239,58 @@ function showHighScores()
     showEl(document.getElementById("scoreCard"),true);
 }
 
+
+/* ------- End Score Section ---------*/
+
+/************************************** 
+function - done
+The done section displays the final score.
+The user can enter their initials for the high score
+**************************************/
+function done()
+{
+    clearInterval(timeInterval);
+    displayTime()
+    showEl(document.getElementById("questionCard"),false);
+    showEl(document.getElementById("doneCard"),true);
+    document.getElementById("finalscore").textContent= "Your final score is "+timeLeft;
+}
+
+/************************************** 
+function - back 
+The back function restarts the quiz
+**************************************/
+function back()
+{
+    hideAllCards();
+    showEl(document.getElementById("startCard"),true);
+}
+
+/************************************** 
+function - clear
+deletes the scores from memory and calls emptylist
+**************************************/
+function clear()
+{
+    emptyList();
+    localStorage.removeItem("scores");
+}
+
+
+/************************************** 
+function - hide cards
+sets all elements with class card
+to hidden
+**************************************/
 function hideAllCards()
 {
     var allCards = document.getElementsByClassName("card")
-    console.log(allCards);
     for (let i = 0; i < allCards.length; i++) 
     {
         showEl(allCards[i],false);
-        console.log(allCards[i].visibility);
-      }
+    }
 }
+
 /************************************** 
 Set element visibile property
 **************************************/
@@ -299,6 +301,7 @@ function showEl(El, b)
   else
     {El.style.visibility="hidden";}
 }
+
 /************************************** 
 Set element disabled property
 **************************************/
@@ -323,4 +326,3 @@ backBtnEl.addEventListener("click", back);
 clearBtnEl.addEventListener("click", clear);
 showScoresEl.addEventListener("click",showHighScores);
 
-showScores();
