@@ -195,9 +195,9 @@ calls showscores to display the new score in the list
 **************************************/
 function addInitials()
 {
-    var x=document.getElementById("initials");
-    if(x.value.length>0)
+    if(document.getElementById("initials").value.length>0)
     {
+        console.log(document.getElementById("initials").value);
         var scores=((JSON.parse(localStorage.getItem("scores"))));
         if(scores == null)
         {
@@ -207,7 +207,8 @@ function addInitials()
         { 
             scores.push(new Score(document.getElementById("initials").value,timeLeft));
         };
-
+        document.getElementById("initials").value=null;
+        console.log(document.getElementById("initials").value+" [[[]]]");
         localStorage.setItem("scores", JSON.stringify(scores));
         showScores();
 
