@@ -1,0 +1,124 @@
+/************************************** 
+Default page style for 
+box-sizing, padding, margin  
+**************************************/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/************************************** 
+Default body style for
+font-family, margin
+**************************************/
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+header div {
+  padding: 10px;
+}
+
+#scoreLink {
+  color:rgb(77, 1, 77);
+  float:left;
+}
+#scoreLink:hover {
+  color:plum;
+
+}
+#timeLeft {
+  color:green;
+  float:right;
+}
+
+
+/************************************** 
+Set button style for class
+.btn
+**************************************/
+
+.btn {
+  border: none;
+  background-color: rgb(77, 1, 77);
+  color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  font-size: 22px;
+  padding: 10px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.answers .btn {
+  display:block;
+  width:30%;
+  text-align:left;
+  
+}
+button[disabled] {
+  cursor: default;
+  background: #c0c7cf;
+}
+
+button:hover {
+  cursor: default;
+  background:plum;
+}
+
+.card {
+  padding: 30px 40px;
+  visibility: hidden;
+  position:absolute;
+  top:50px;
+}
+
+/************************************** 
+Set card body style for class
+.card-body
+**************************************/
+.card-body {
+  min-height: 100px;
+}
+
+#startCard {
+  text-align: center;
+  visibility: visible;
+}
+
+
+/************************************** 
+Set style for text
+**************************************/
+.score {
+  background-color:plum;
+  list-style-position:inside;
+} 
+
+
+/************************************** 
+set media settings for  
+.btn, #password, #inputLen
+**************************************/ 
+@media (max-width: 690px) {
+  .btn {
+    font-size: 1rem;
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
+  }
+
+  #password,
+  inputLen,
+  label {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .btn {
+    font-size: 0.8rem;
+  }
+}
