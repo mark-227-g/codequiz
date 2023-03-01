@@ -46,8 +46,8 @@ THEN I can save my initials and score
 
 #### Technology used:
 * HTML5 
-*CSS3
-* javascript 
+* CSS3
+* Javascript 
 * Deployed using github pages
 
 #### References:
