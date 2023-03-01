@@ -26,23 +26,23 @@ WHEN the game is over
 THEN I can save my initials and score
 ```
 
-#### Screenshots
+#### screenshots
 ##### Step 1 - Initial start screen: Press start quiz to begin
-##### ![Screenshot1](./assets/images/ScreenShot1.png)
+##### ![screenshot1](./assets/images/screenshot1.png)
 ##### Step 2 - Press the button of the correct answer
-##### ![Screenshot1](./assets/images/ScreenShot2.png)
+##### ![screenshot1](./assets/images/screenshot2.png)
 ##### Step 3 - If it is the wrong answer then the wrong error message will be displayed.
-##### ![Screenshot1](./assets/images/ScreenShot3.png)
+##### ![screenshot1](./assets/images/screenshot3.png)
 ##### Step 4 - If it is the right answer then the correct message will be displayed.
-##### ![Screenshot1](./assets/images/ScreenShot4.png)
+##### ![screenshot1](./assets/images/screenshot4.png)
 ##### Step 5 - Continue answering question.
-##### ![Screenshot1](./assets/images/ScreenShot5.png)
+##### ![screenshot1](./assets/images/screenshot5.png)
 ##### Step 6 - Continue answering question.
-##########![Screenshot1](./assets/images/ScreenShot6.png)
+##### ![screenshot1](./assets/images/screenshot6.png)
 ##### Step 7 - Enter your initials to save high score
-![Screenshot1](./assets/images/ScreenShot7.png)
+##### ![screenshot1](./assets/images/screenshot7.png)
 ##### Step 8 - View high scores. Press Go Back button to restart quiz or Clear high scores 
-##### ![Screenshot1](./assets/images/ScreenShot8.png)
+##### ![screenshot1](./assets/images/screenshot8.png)
 
 #### Technology used:
 * HTML5 
